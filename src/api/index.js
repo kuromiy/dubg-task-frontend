@@ -27,6 +27,14 @@ export const testRequest = async () => {
   return await api.get(ApiURL.test)
 }
 
+// トークンテストAPI
+// headersにJWTのトークンを設定して呼び出す。
+export const tokenTestRequest = async (token) => {
+  return await api.get(ApiURL.tokenTest, {
+    headers: {"Authorization": `Bearer ${token}`}
+  });
+}
+
 export const fetchSelectedData = async (id) => {
   return await api.get('/videos', {
     params: {

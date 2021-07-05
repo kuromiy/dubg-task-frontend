@@ -5,4 +5,5 @@ export default class ApiURL {
   public static logout = '/auth/logout'
   
   public static test = '/test'
+  public static tokenTest = '/auth/test';
 }
