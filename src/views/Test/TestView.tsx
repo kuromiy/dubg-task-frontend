@@ -1,17 +1,12 @@
 import React, { useState } from 'react'
 
-import { testRequest, signin, tokenTestRequest } from '../../api'
+import {signin, tokenTestRequest } from '../../api'
+
 const TestView = () => {
   const [token, setToken] = useState("");
 
-  const onTestPressed = () => {
-    testRequest().then((res) => {
-      console.log(res)
-    })
-  }
-
   const onLoginPressed = () => {
-    signin().then((res) => {
+    signin("test@example.com", "test").then((res) => {
       console.log(res)
 
       // JWTのトークン設定
@@ -23,13 +18,12 @@ const TestView = () => {
   // 認証成功なら{message: "認証成功"}が帰ってくる。
   const onTokenConfirm = () => {
     tokenTestRequest(token).then(res => {
-        console.log(res)
+      console.log(res)
     });
   };
 
   return (
     <div>
-      <button onClick={onTestPressed}>test</button>
       <button onClick={onLoginPressed}>login</button>
       <button onClick={onTokenConfirm}>トークン確認</button>
       <span>Token: {token}</span>
