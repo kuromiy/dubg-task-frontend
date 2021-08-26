@@ -28,7 +28,7 @@ const LoginView = (props: Props) => {
   return (
     <div>
       <div>
-        <p>Login</p>
+        <h1>Log in</h1>
       </div>
       <div>
         <TextField placeholder={'user name'} onChange={(elem)=>{setUsername(elem.target.value)}} />

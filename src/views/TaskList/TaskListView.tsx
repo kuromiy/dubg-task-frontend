@@ -23,7 +23,7 @@ const TaskListView = () => {
 
   return (
     <div>
-      <p>Task List</p>
+      <h1>Task List</h1>
       <div>
         <TextField placeholder={'New task name'} onChange={(elem)=>{setNewTaskName(elem.target.value)}} />
         <Button 
