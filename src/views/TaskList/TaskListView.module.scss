@@ -1,2 +1,6 @@
 .taskListView {
 }
+.taskListItem {
+  display: flex;
+  flex-direction: row;
+}

@@ -4,12 +4,15 @@ import { useEffect, useState } from 'react'
 import { Button, CircularProgress, TextField } from '@material-ui/core'
 import { Add } from '@material-ui/icons'
 
+import CircleDot from '../../components/CircleDot'
+
 import Style from './TaskListView.module.scss'
 
 import api from '../../api'
 import { UserDataContext } from '../Main'
 import ApiUrl from '../../api/apiurl'
 import { Task } from '../../types/AppTypes'
+import Colors from '../../consts/Colors'
 
 const TaskListView = () => {
   const userData = useContext(UserDataContext)
@@ -76,10 +79,20 @@ const TaskListView = () => {
 }
 
 const TaskListItem = (props: {task: Task}) => {
+  const circleColor = (()=>{
+    switch (props.task.taskStatus?.taskStatusId){
+      case '001': return Colors.task.new
+      default: return Colors.disabledGray
+    }
+  })()
   return (
-    <div>
-      <span>{props.task.taskStatus?.taskStatusName}</span>
-      <span>{props.task.taskName}</span>
+    <div className={Style.taskListItem}>
+      <div>
+        <CircleDot size={8} color={circleColor} />
+      </div>
+      <div>
+        <span>{props.task.taskName}</span>
+      </div>
     </div>
   )
 }
