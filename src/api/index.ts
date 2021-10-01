@@ -7,6 +7,7 @@ const api = axios.create({
   baseURL: ApiURL.host,
   timeout: 2000,
 })
+
 api.interceptors.request.use((config)=>{
   console.log('intercept')
   let token = undefined

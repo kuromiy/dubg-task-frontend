@@ -1,4 +1,4 @@
-export default class ApiURL {
+export default class ApiUrl {
   public static host = 'http://localhost:8080';
   public static user = '/user';
   public static singin = '/auth/login'
@@ -6,4 +6,5 @@ export default class ApiURL {
   
   public static test = '/test'
   public static tokenTest = '/auth/test';
+  public static tasks = '/tasks'
 }
