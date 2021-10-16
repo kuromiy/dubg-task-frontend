@@ -2,11 +2,14 @@ import React from 'react'
 import { useState, useEffect, useContext } from 'react'
 
 import {signin} from '../../api'
-import { Button, TextField } from '@material-ui/core'
+import { Box, Button, TextField } from '@material-ui/core'
 import { prototype } from 'stream'
 import { useHistory } from 'react-router'
 
 import { UserDataContext } from '../Main'
+import Style from './LoginView.module.scss'
+import Header from '../../components/Header/Header'
+import BaseLayout from '../../layouts/BaseLayout'
 
 type Props = {
   onLogined: (username: string, token: string)=>void
@@ -26,21 +29,29 @@ const LoginView = (props: Props) => {
   }
 
   return (
-    <div>
-      <div>
-        <h1>Log in</h1>
-      </div>
-      <div>
-        <TextField placeholder={'user name'} onChange={(elem)=>{setUsername(elem.target.value)}} />
-      </div>
-      <p>Test username: test@example.com</p>
-      <div>
-        <TextField placeholder={'password'} onChange={(elem) => {setPassword(elem.target.value)}} />
-      </div>
-      <p>Test password: test</p>
+    <BaseLayout>
+      <div className={Style['login-view']}>
+        <div>
+          <h1>Log in</h1>
+        </div>
+        <div className={`${Style['form-container']} mb-4`}>
+          <div className={`${Style['input-wrap']} mb-3`}>
+            <TextField variant={'outlined'} size={'small'} label={'Username'} onChange={(elem)=>{setUsername(elem.target.value)}} />
+          </div>
+          <div className={Style['input-wrap']}>
+            <TextField variant={'outlined'} size={'small'} label={'Password'} onChange={(elem) => {setPassword(elem.target.value)}} />
+          </div>
+        </div>
+   
+        <Button variant={'contained'} onClick={onClickedLogin}>Login</Button>
 
-      <Button variant={'contained'} onClick={onClickedLogin}>Login</Button>
-    </div>
+        <div>
+          <p style={{color: 'gray'}}>Test username: test@example.com</p>
+          <p style={{color: 'gray'}}>Test password: test</p>
+        </div>
+
+      </div>
+    </BaseLayout>
   )
 }
 

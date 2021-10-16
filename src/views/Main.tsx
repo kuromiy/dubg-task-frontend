@@ -35,7 +35,6 @@ function Main() {
       {/* <TestView /> */}
       <UserDataContext.Provider value={{token: undefined, username: ''}}>
         <BrowserRouter>
-          <Header />
           <Switch>
             <Route exact path="/">
               <TopView />

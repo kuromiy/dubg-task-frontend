@@ -51,7 +51,7 @@ const TaskListView = () => {
   }
 
   return (
-    <div className={Style.taskListView}>
+    <div className={Style['task-list-view']}>
       <h1>Task List</h1>
       <div>
         <TextField placeholder={'New task name'} onChange={(elem)=>{setNewTaskName(elem.target.value)}} />
@@ -86,7 +86,7 @@ const TaskListItem = (props: {task: Task}) => {
     }
   })()
   return (
-    <div className={Style.taskListItem}>
+    <div className={Style['task-list-item']}>
       <div>
         <CircleDot size={8} color={circleColor} />
       </div>
